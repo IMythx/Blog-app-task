@@ -47,13 +47,13 @@ const SearchBar = () => {
                   key={index}
                 >
                   <Highlighter
-                    className="truncate max-w-full font-bold text-slate-400"
+                    className="truncate max-w-full font-bold"
                     searchWords={query.split(" ")}
                     autoEscape={true}
                     textToHighlight={post.title}
                   />
                   <Highlighter
-                    className="truncate max-w-full"
+                    className="truncate max-w-full text-slate-400"
                     searchWords={query.split(" ")}
                     autoEscape={true}
                     textToHighlight={post.content}
