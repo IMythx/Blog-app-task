@@ -34,14 +34,14 @@ const categories = [
   },
 ] as const;
 const Categories = () => {
-  const t = useTranslations("HOME.CATEGORIES");
+  const t = useTranslations("LAYOUT.CATEGORIES");
 
   const isMobile = useMediaQuery("(max-width: 640px)");
   return (
     <div className="flex items-center">
       {!isMobile &&
         categories?.map((category, index) => (
-          <Button variant={"link"} className="w-full">
+          <Button variant={"link"} className="w-full" key={index}>
             <Link href={`/categories/${category.path}`}>
               {t(category.name)}
             </Link>

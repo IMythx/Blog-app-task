@@ -12,7 +12,7 @@ const Header = () => {
 
   const t = useTranslations("LAYOUT.HEADER");
   return (
-    <header className="px-4 sm:px-10 py-2 flex flex-col smflex-row gap-4">
+    <header className="px-4 sm:px-10 py-4 flex flex-col smflex-row gap-4">
       <div className="flex items-center gap-0 sm:gap-[20rem] justify-between sm:justify-normal">
         <div className="flex items-center gap-8 w-full">
           <Link

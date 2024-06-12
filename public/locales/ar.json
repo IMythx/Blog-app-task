@@ -3,18 +3,37 @@
     "HEADER": {
       "LANG": "English"
     },
-    "PAGINATION": {
-      "NEXT_BUTTON": "التالي",
-      "PREVIOUS_BUTTON": "السابق"
-    }
-  },
-  "HOME": {
     "CATEGORIES": {
       "BUSINESS": "اعمال",
       "ENTERTAINMENT": "ترفيه",
       "HEALTH": "صحة",
       "SCIENCE": "علوم",
       "SPORTS": "رياضة"
+    },
+    "PAGINATION": {
+      "NEXT_BUTTON": "التالي",
+      "PREVIOUS_BUTTON": "السابق"
+    },
+    "FOOTER": {
+      "ABOUT": "عنا",
+      "LOREM": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      "EMAIL": "الايميل",
+      "PHONE": "المحمول",
+      "QUICK_LINKS": "روابط سريعة",
+      "CATEGORIES": "فئات",
+      "LINKS": {
+        "HOME": "الرئيسية",
+        "ABOUT": "عنا",
+        "BLOG": "بلوج",
+        "ARCHIVED": "ارشيف",
+        "AUTHOR": "المالك"
+      },
+      "BOTTOM": {
+        "RIGHTS": "حميع الحقوق محفوظة",
+        "TERMS": "شروط الاستخدام",
+        "PP": "سياسة الخصوصية",
+        "CP": "سياسة ملفات الارتباط"
+      }
     }
   }
 }

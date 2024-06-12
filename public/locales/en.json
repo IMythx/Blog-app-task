@@ -6,15 +6,34 @@
     "PAGINATION": {
       "NEXT_BUTTON": "Next",
       "PREVIOUS_BUTTON": "Previous"
-    }
-  },
-  "HOME": {
+    },
     "CATEGORIES": {
       "BUSINESS": "Business",
       "ENTERTAINMENT": "Entertainment",
       "HEALTH": "Health",
       "SCIENCE": "Science",
       "SPORTS": "Sports"
+    },
+    "FOOTER": {
+      "ABOUT": "About",
+      "LOREM": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      "EMAIL": "Email",
+      "PHONE": "Phone",
+      "QUICK_LINKS": "Quick links",
+      "CATEGORIES": "Categories",
+      "LINKS": {
+        "HOME": "Home",
+        "ABOUT": "About",
+        "BLOG": "Blog",
+        "ARCHIVED": "Archived",
+        "AUTHOR": "Author"
+      },
+      "BOTTOM": {
+        "RIGHTS": "All Rights Reserved",
+        "TERMS": "Terms of Use",
+        "PP": "Privacy Policy",
+        "CP": "Cookie Policy"
+      }
     }
   }
 }

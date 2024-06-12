@@ -11,7 +11,7 @@ import { formatDate } from "@/lib/formatDate";
 import { useTranslations } from "next-intl";
 
 const Post = ({ title, thumbnail, id, content, createdAt, category }: Post) => {
-  const t = useTranslations("HOME.CATEGORIES");
+  const t = useTranslations("LAYOUT.CATEGORIES");
   return (
     <Link
       href={`/post/${id}`}

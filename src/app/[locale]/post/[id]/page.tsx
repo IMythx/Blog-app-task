@@ -37,7 +37,7 @@ const Page = async ({ params: { id } }: Props) => {
     id: +id,
   });
   const dir = lang === "ar" ? "rtl" : "ltr";
-  const categoriesT = await getTranslations("HOME.CATEGORIES");
+  const categoriesT = await getTranslations("LAYOUT.CATEGORIES");
   return (
     <div className="grid gap-8 my-4 sm:my-10 px-4 sm:px-10" dir={dir}>
       <PostHeader category={post.category} title={post.title} />

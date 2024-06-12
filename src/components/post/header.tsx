@@ -10,7 +10,7 @@ import { useTranslations } from "next-intl";
 import ToggleLangButton from "../globals/ToggleLangButton";
 
 const PostHeader = ({ category, title }: Pick<Post, "category" | "title">) => {
-  const categoriesT = useTranslations("HOME.CATEGORIES");
+  const categoriesT = useTranslations("LAYOUT.CATEGORIES");
 
   return (
     <div className="flex items-start justify-between">

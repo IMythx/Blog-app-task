@@ -75,6 +75,17 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7c4c4;
+}
+
 .rc-pagination {
   margin: 0;
   padding: 0;

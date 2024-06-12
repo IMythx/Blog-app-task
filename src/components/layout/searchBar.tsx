@@ -1,14 +1,9 @@
-import {
-  Command,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
 import useGetSearchedPosts from "@/hooks/useGetSearchedPosts";
-import { useRouter } from "@/navigation";
+import { Link, usePathname, useRouter } from "@/navigation";
 import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import Highlighter from "react-highlight-words";
+import { Input } from "../ui/input";
 
 let debounceTime: any;
 const SearchBar = () => {
@@ -18,9 +13,15 @@ const SearchBar = () => {
 
   const lang = useLocale() as locales;
 
-  const { data, isLoading } = useGetSearchedPosts({ query, lang });
+  const pathName = usePathname();
+
+  const { data } = useGetSearchedPosts({ query, lang });
 
   const router = useRouter();
+
+  useEffect(() => {
+    setValue("");
+  }, [pathName]);
 
   useEffect(() => {
     clearTimeout(debounceTime);
@@ -28,22 +29,22 @@ const SearchBar = () => {
   }, [value]);
 
   return (
-    <Command className="rounded-lg border relative !overflow-visible">
-      <CommandInput
-        onValueChange={setValue}
+    <div className="relative w-full max-w-[800px]">
+      <Input
         value={value}
+        onChange={(e) => setValue(e.target.value)}
         placeholder={lang === "en" ? "search..." : "ابحث..."}
-        className="rounded-full"
+        className="focus-visible:"
       />
-
-      <CommandList className="absolute top-full inset-x-0 z-50 border bg-white border-t-0 rounded-lg rounded-tl-none rounded-tr-none">
-        {!isLoading && value && (
-          <>
-            {data &&
+      {value && data && (
+        <div className="!absolute z-50 bg-white inset-x-0 top-[105%] min-h-fit overflow-y-auto max-h-[500px] border border-top-0 rounded-lg rounded-tl-none rounded-tr-none">
+          <div className="grid">
+            {Array.isArray(data) &&
               data?.map((post, index) => (
-                <CommandItem
-                  className="grid gap-1 cursor-pointer"
-                  onClick={() => router.push("/post/" + post.id)}
+                <Link
+                  href={`/post/${post.id}`}
+                  className="hover:bg-stone-100 py-2 grid gap-1"
+                  key={index}
                 >
                   <Highlighter
                     className="truncate max-w-full"
@@ -57,12 +58,15 @@ const SearchBar = () => {
                     autoEscape={true}
                     textToHighlight={post.content}
                   />
-                </CommandItem>
-              ))}
-          </>
-        )}
-      </CommandList>
-    </Command>
+                </Link>
+              ))}{" "}
+            {value && !Array.isArray(data) && (
+              <p className="w-full text-center my-10 font-bold">Not found</p>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

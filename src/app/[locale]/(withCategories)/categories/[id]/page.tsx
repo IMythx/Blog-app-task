@@ -18,7 +18,7 @@ const Page = async ({ params: { id } }: { params: { id: string } }) => {
 
   const posts = await getPostsByCategory({ page: 1, lang, category: id });
 
-  const t = await getTranslations("HOME.CATEGORIES");
+  const t = await getTranslations("LAYOUT.CATEGORIES");
   return (
     <div className="grid gap-8">
       <h1 className="font-bold text-4xl capitalize px-4 sm:px-10">
