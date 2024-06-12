@@ -3,7 +3,7 @@ import { Link, usePathname, useRouter } from "@/navigation";
 import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import Highlighter from "react-highlight-words";
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/input";
 
 let debounceTime: any;
 const SearchBar = () => {
@@ -47,13 +47,13 @@ const SearchBar = () => {
                   key={index}
                 >
                   <Highlighter
-                    className="truncate max-w-full"
+                    className="truncate max-w-full font-bold"
                     searchWords={query.split(" ")}
                     autoEscape={true}
                     textToHighlight={post.title}
                   />
                   <Highlighter
-                    className="truncate max-w-full"
+                    className="truncate max-w-full text-slate-400"
                     searchWords={query.split(" ")}
                     autoEscape={true}
                     textToHighlight={post.content}
