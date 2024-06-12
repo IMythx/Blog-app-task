@@ -1,6 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
-import Link from "@/navigation";
+import Link from 'next/link'
 import Image from "next/image";
 import logo from "../../../public/logo.svg";
 import ToggleLangButton from "../globals/ToggleLangButton";
