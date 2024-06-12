@@ -6,9 +6,12 @@ import ToggleLangButton from "../globals/ToggleLangButton";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import SearchBar from "./searchBar";
 import { Link } from "@/navigation";
+import { useSearchParams } from "next/navigation";
 
 const Header = () => {
   const isMobile = useMediaQuery("(max-width: 640px)");
+
+  const searchParams = useSearchParams()
 
   const t = useTranslations("LAYOUT.HEADER");
   return (
@@ -16,7 +19,7 @@ const Header = () => {
       <div className="flex items-center gap-0 sm:gap-[20rem] justify-between sm:justify-normal">
         <div className="flex items-center gap-8 w-full">
           <Link
-            href={"/"}
+            href={"/" + "?" + searchParams}
             className="font-bold text-lg sm:text-2xl whitespace-nowrap flex items-center gap-1"
           >
             <Image src={logo} width={30} height={30} alt="logo" />
