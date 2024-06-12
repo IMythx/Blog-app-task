@@ -1,0 +1,20 @@
+{
+  "LAYOUT": {
+    "HEADER": {
+      "LANG": "العربية"
+    },
+    "PAGINATION": {
+      "NEXT_BUTTON": "Next",
+      "PREVIOUS_BUTTON": "Previous"
+    }
+  },
+  "HOME": {
+    "CATEGORIES": {
+      "BUSINESS": "Business",
+      "ENTERTAINMENT": "Entertainment",
+      "HEALTH": "Health",
+      "SCIENCE": "Science",
+      "SPORTS": "Sports"
+    }
+  }
+}
