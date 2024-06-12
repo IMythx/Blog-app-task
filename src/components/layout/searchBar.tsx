@@ -43,7 +43,7 @@ const SearchBar = () => {
               data?.map((post, index) => (
                 <Link
                   href={`/post/${post.id}`}
-                  className="hover:bg-stone-100 py-2 grid gap-1"
+                  className="hover:bg-stone-100 py-2 grid gap-1 px-2"
                   key={index}
                 >
                   <Highlighter
