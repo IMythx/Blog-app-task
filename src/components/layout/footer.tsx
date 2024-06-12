@@ -62,13 +62,13 @@ const Footer = () => {
           </span>
         </Link>
         <div className="flex items-center gap-2 sm:gap-4">
-          <Button className="text-sm sm:text-base" variant={"link"}>
+          <Button className="text-sm sm:text-base px-0 sm:px-4" variant={"link"}>
             {t("BOTTOM.TERMS")}
           </Button>
-          <Button className="text-sm sm:text-base" variant={"link"}>
+          <Button className="text-sm sm:text-base px-0 sm:px-4" variant={"link"}>
             {t("BOTTOM.PP")}
           </Button>
-          <Button className="text-sm sm:text-base" variant={"link"}>
+          <Button className="text-sm sm:text-base px-0 sm:px-4" variant={"link"}>
             {t("BOTTOM.CP")}
           </Button>
         </div>
