@@ -34,7 +34,7 @@ const Post = ({ title, thumbnail, id, content, createdAt, category }: Post) => {
         </Link>
         <TooltipProvider delayDuration={0}>
           <Tooltip>
-            <TooltipTrigger className="truncate max-w-full font-bold text-sm sm:text-base">
+            <TooltipTrigger className="truncate max-w-full font-bold text-sm sm:text-base text-start">
               {title}
             </TooltipTrigger>
             <TooltipContent>

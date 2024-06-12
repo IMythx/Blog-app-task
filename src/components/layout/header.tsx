@@ -1,11 +1,11 @@
 "use client";
 import { useTranslations } from "next-intl";
-import Link from 'next/link'
 import Image from "next/image";
 import logo from "../../../public/logo.svg";
 import ToggleLangButton from "../globals/ToggleLangButton";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import SearchBar from "./searchBar";
+import { Link } from "@/navigation";
 
 const Header = () => {
   const isMobile = useMediaQuery("(max-width: 640px)");
