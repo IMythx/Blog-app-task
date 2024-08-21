@@ -11,8 +11,9 @@ const useGetSearchedPosts = ({
   return useQuery<Post[]>({
     queryKey: ["searchedQuery", query],
     queryFn: async () => await getSearchedPosts({ lang, query }),
-    refetchOnMount: true,
+    refetchOnMount: false,
     refetchOnWindowFocus: false,
+    enabled: !!query,
   });
 };
 

@@ -16,13 +16,13 @@ const ToggleLangButton = () => {
 
   const headerT = useTranslations("LAYOUT.HEADER");
 
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
 
   const nextLocale = locale === "en" ? "ar" : "en";
 
   const toggleLang = () =>
     startTransition(() => {
-      router.replace(pathname + "?" + searchParams , { locale: nextLocale });
+      router.replace(pathname + "?" + searchParams, { locale: nextLocale });
     });
 
   return (

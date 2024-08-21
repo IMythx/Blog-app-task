@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import Providers from "@/providers";
+import { locales } from "@/config";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--inter" });
 
@@ -31,12 +33,14 @@ export default async function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-inter antialiased max-w-[1440px] mx-auto",
-          inter.variable
+          inter.variable,
         )}
       >
         <NextIntlClientProvider messages={messages}>
           <Providers>
-            <Header />
+            <Suspense fallback={null}>
+              <Header />
+            </Suspense>
             <main>{children}</main>
           </Providers>
           <Footer />
@@ -44,4 +48,8 @@ export default async function RootLayout({
       </body>
     </html>
   );
+}
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
 }

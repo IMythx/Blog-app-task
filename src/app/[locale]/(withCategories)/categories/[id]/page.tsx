@@ -1,7 +1,11 @@
-import { getPostsByCategory } from "@/api";
+import { getAllPosts, getPostsByCategory } from "@/api";
 import PostsGrid from "@/components/globals/postsGrid";
 import { Metadata } from "next";
-import { getLocale, getTranslations } from "next-intl/server";
+import {
+  getLocale,
+  getTranslations,
+  unstable_setRequestLocale,
+} from "next-intl/server";
 
 export async function generateMetadata({
   params: { id },
@@ -12,8 +16,26 @@ export async function generateMetadata({
     title: id,
   };
 }
+export const dynamicParams = true;
 
-const Page = async ({ params: { id } }: { params: { id: string } }) => {
+export async function generateStaticParams() {
+  const posts = await getAllPosts({
+    lang: "en",
+    noLimit: true,
+  });
+
+  let categories: Set<string> = new Set();
+
+  posts.map((post) => categories.add(post.category));
+
+  return Array.from(categories).map((category) => ({ id: category }));
+}
+const Page = async ({
+  params: { locale, id },
+}: {
+  params: { locale: string; id: string };
+}) => {
+  unstable_setRequestLocale(locale);
   const lang = (await getLocale()) as locales;
 
   const posts = await getPostsByCategory({ page: 1, lang, category: id });

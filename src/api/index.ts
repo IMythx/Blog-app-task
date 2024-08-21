@@ -18,7 +18,7 @@ export const getAllPosts = async ({
       noLimit ? urlWithoutLimit : urlWithLimit,
       {
         cache: "no-store",
-      }
+      },
     );
     return await res.json();
   } catch (e) {
@@ -37,7 +37,7 @@ export const getPostsByCategory = async ({
 }): Promise<Post[]> => {
   try {
     const res: Response = await fetch(
-      `${baseUrl}/${lang}Posts?page=${page}&limit=10&category=${category}`
+      `${baseUrl}/${lang}Posts?page=${page}&limit=10&category=${category}`,
     );
     return await res.json();
   } catch (e) {
@@ -69,7 +69,7 @@ export const getSearchedPosts = async ({
 }): Promise<Post[]> => {
   try {
     const res: Response = await fetch(
-      `${baseUrl}/${lang}Posts?search=${query}`
+      `${baseUrl}/${lang}Posts?search=${query}`,
     );
     return await res.json();
   } catch (e) {

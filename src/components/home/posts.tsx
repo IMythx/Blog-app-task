@@ -1,26 +1,18 @@
 "use client";
-import PostsGrid from "../globals/postsGrid";
 import Pagination from "rc-pagination/lib/Pagination";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { usePathname, useRouter } from "@/navigation";
-import useGetAllPosts from "@/hooks/useGetAllPosts";
-import Loader from "../globals/loader";
 
-const Posts = () => {
+const Posts = ({ children }: { children: React.ReactNode }) => {
   const isMobile = useMediaQuery("(max-width: 640px)");
 
   const searchParams = useSearchParams();
 
-  const [page, setPage] = useState<number>(
-    Number(searchParams?.get("page")) || 1
-  );
-
-  const { data: posts, isLoading } = useGetAllPosts({ page });
+  const page = Number(searchParams?.get("page"));
 
   const pathName = usePathname();
 
@@ -28,12 +20,9 @@ const Posts = () => {
 
   const t = useTranslations("LAYOUT.PAGINATION");
 
-  if (isLoading) {
-    return <Loader />;
-  }
   return (
     <div className="grid gap-8">
-      <PostsGrid posts={posts!} />
+      {children}
       <Pagination
         showLessItems={false}
         className="!mx-auto w-fit"
@@ -47,7 +36,7 @@ const Posts = () => {
           if (current - page < 3 && current - page >= 0) return element;
         }}
         onChange={(page) => {
-          setPage(page);
+          // setPage(page);
           const params = new URLSearchParams(searchParams.toString());
 
           page !== 1 ? params.set("page", String(page)) : params.delete("page");
@@ -61,7 +50,7 @@ const Posts = () => {
           <Button
             variant={"outline"}
             className={cn(
-              "max-h-[36px] gap-1 sm:w-auto w-fit sm:px-4 px-2 sm:min-w-[120px] min-w-fit"
+              "max-h-[36px] gap-1 sm:w-auto w-fit sm:px-4 px-2 sm:min-w-[120px] min-w-fit",
             )}
           >
             {t("NEXT_BUTTON")}
@@ -87,7 +76,7 @@ const Posts = () => {
           <Button
             variant={"outline"}
             className={cn(
-              "max-h-[36px] gap-1 sm:w-auto w-fit sm:px-4 px-2 sm:min-w-[120px] min-w-fit"
+              "max-h-[36px] gap-1 sm:w-auto w-fit sm:px-4 px-2 sm:min-w-[120px] min-w-fit",
             )}
           >
             <svg

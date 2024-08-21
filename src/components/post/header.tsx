@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { useTranslations } from "next-intl";
 import ToggleLangButton from "../globals/ToggleLangButton";
+import { Suspense } from "react";
 
 const PostHeader = ({ category, title }: Pick<Post, "category" | "title">) => {
   const categoriesT = useTranslations("LAYOUT.CATEGORIES");
@@ -30,7 +31,9 @@ const PostHeader = ({ category, title }: Pick<Post, "category" | "title">) => {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <ToggleLangButton />
+      <Suspense fallback={null}>
+        <ToggleLangButton />
+      </Suspense>
     </div>
   );
 };

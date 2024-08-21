@@ -11,7 +11,7 @@ import { useSearchParams } from "next/navigation";
 const Header = () => {
   const isMobile = useMediaQuery("(max-width: 640px)");
 
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
 
   const t = useTranslations("LAYOUT.HEADER");
   return (
