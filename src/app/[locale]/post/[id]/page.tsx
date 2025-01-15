@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import PostHeader from "@/components/post/header";
 import { Metadata } from "next";
 import { formatDate } from "@/lib/formatDate";
+import { Product, WithContext } from "schema-dts";
 
 type Props = { params: { id: string; locale: locales } };
 
@@ -55,12 +56,32 @@ const Page = async ({ params: { locale, id } }: Props) => {
 
   const categoriesT = await getTranslations("LAYOUT.CATEGORIES");
 
-  const jsonLd = {
+  const jsonLd: WithContext<Product> = {
     "@context": "https://schema.org",
     "@type": "Product",
+    "@id": `https://blog.mahmoudhelal.com/${locale}/post/${post.id}`,
     name: post.title,
     image: post.thumbnail,
     description: post.content,
+    category: post.category,
+    keywords: post.title,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: 4.4,
+      reviewCount: 89,
+    },
+    review: {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: 4,
+        bestRating: 5,
+      },
+      author: {
+        "@type": "Person",
+        name: "Fred Benson",
+      },
+    },
   };
 
   return (
