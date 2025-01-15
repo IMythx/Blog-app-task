@@ -50,10 +50,25 @@ const Page = async ({ params: { locale, id } }: Props) => {
     lang,
     id: +id,
   });
+
   const dir = lang === "ar" ? "rtl" : "ltr";
+
   const categoriesT = await getTranslations("LAYOUT.CATEGORIES");
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: post.title,
+    image: post.thumbnail,
+    description: post.content,
+  };
+
   return (
     <div className="grid gap-8 my-4 sm:my-10 px-4 sm:px-10" dir={dir}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PostHeader category={post?.category} title={post?.title} />
       <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
         <div className="relative w-full h-[40vh]">
